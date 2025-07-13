@@ -1,0 +1,18 @@
+nor  dd if=/dev/zero bs=1 count=524288 | tr '\000' '\377' > nor_n72ap.bin
+nand dd if=/dev/zero of=nand_n72ap.img bs=1M count=256
+iboot = ipsw
+now u got these requried file lets go to git clone
+paste this "git clone https://github.com/gtcarriere/QEMU-s5l89xx-port.git"
+now we need to make build folder
+simple type
+mkdir build
+cd build
+now u builded folder now we need to complie  
+u need sdl1 and other lib file so
+now make sure u disable linker error or u have to do it again
+paste this "../configure --target-list=arm-softmmu --enable-sdl --enable-skinning"
+then type make(core cpu u have)
+then simple run /arm-softmmu/qemu-system-arm -M ipad1g -pflash nordump.bin -option-rom <path-to-decrypted-iBoot> -serial file:serial.txt
+MAKE SURE U get requried file get them on top
+now it will run iemu
+                           USE MSYS2 MINGW IF U ON WINDOWS
